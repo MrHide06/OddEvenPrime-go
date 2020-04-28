@@ -13,7 +13,7 @@ func main() {
 	fmt.Println("-----------------------------------------------------------------------------------")
 	fmt.Printf("Bilangan genap : %+v, jumlah = %d\n", genap(array), len(genap(array)))
 	fmt.Println("-----------------------------------------------------------------------------------")
-	prime(array)
+	fmt.Printf("Bilangan Prima : %+v, jumlah = %d\n", prime(array), len(prime(array)))
 }
 
 func genap(array [30]int) []int {
@@ -41,11 +41,16 @@ func ganjil(array [30]int) []int {
 
 func prime(array [30]int) []int {
 	var prima []int
-	for _, angka := range array {
-		if (angka%2 == 0) || (angka != 1) {
-			fmt.Printf("% d", angka)
+	for x := 1; x < len(array); x++ {
+		i := 0
+		for y := 1; y < len(array); y++ {
+			if x%y == 0 {
+				i++
+			}
+		}
+		if (i == 2) && (x != 1) {
+			prima = append(prima, x)
 		}
 	}
-	fmt.Println("\n")
 	return prima
 }
