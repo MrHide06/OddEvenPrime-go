@@ -4,25 +4,24 @@ import (
 	"fmt"
 )
 
-func ganjil(array [20]int) []int {
+func genap(array [20]int) []int {
 	var odd []int
 	for _, i := range array {
 		if i%2 == 0 {
-			fmt.Printf("% d", i)
+			odd = append(odd, i)
 		}
 	}
-	fmt.Println("\n")
+
 	return odd
 }
 
-func genap(array [20]int) []int {
+func ganjil(array [20]int) []int {
 	var even []int
 	for _, i := range array {
 		if i%2 != 0 {
-			fmt.Printf("% d", i)
+			even = append(even, i)
 		}
 	}
-	fmt.Println("\n")
 	return even
 }
 
@@ -38,7 +37,12 @@ func prime(array [20]int) []int {
 }
 func main() {
 	array := [20]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
-	ganjil(array)
-	genap(array)
+
+	fmt.Printf("Bilangan awal : %+v, Jumlah = %d\n", array, len(array))
+	fmt.Println("-----------------------------------------------------------------------------------")
+	fmt.Printf("Bilangan ganjil : %+v, jumlah = %d\n", ganjil(array), len(ganjil(array)))
+	fmt.Println("-----------------------------------------------------------------------------------")
+	fmt.Printf("Bilangan genap : %+v, jumlah = %d\n", genap(array), len(genap(array)))
+	fmt.Println("-----------------------------------------------------------------------------------")
 	prime(array)
 }
